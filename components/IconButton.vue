@@ -1,5 +1,5 @@
 <template>
-  <div class="dst-icon-btn">{{ icon }}</div>
+  <div class="btn">{{ icon }}</div>
 </template>
 
 <script lang="ts" setup>
@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
-.dst-icon-btn {
+.btn {
   width: 40px;
   height: 40px;
   font-size: 16px;
