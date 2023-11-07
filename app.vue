@@ -1,5 +1,7 @@
 <template>
-  <div class="container mx-auto">
+  <TopNav />
+
+  <div class="container max-w-5xl mx-auto">
     <NuxtPage />
   </div>
 </template>

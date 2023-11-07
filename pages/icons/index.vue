@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div class="flex flex-wrap p-4 md:p-6">
     <IconButton
       v-for="i in icons"
       :key="i.text"
@@ -11,10 +11,10 @@
 
 <script lang="ts" setup>
 const { icons } = useIcons()
-const source = ref('')
-const { copy } = useClipboard({ source, legacy: true })
+const { copy } = useClipboard({ legacy: true })
 
 const onCopy = (text: string) => {
   copy(text)
+  message.success(`Copied!`)
 }
 </script>
