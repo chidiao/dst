@@ -83,17 +83,19 @@ export interface ModsInfo {
   IsClientDownload?: boolean
 }
 
-export const getServer = (serverId?: string) => {
-  return useHttp.post(`/details/${serverId}`)
-}
-
-export default function (keyword: string) {
+export default function (keyword?: string) {
   const servers = ref<Server[]>([])
+  const version = useState<number>('version', () => 0)
 
   const getServers = async () => {
-    const { data } = await useHttp.post(`/list?name=${keyword}&pageCount=100&page=0`)
+    const { data } = await useHttp.post(`${API.SERVER_LIST}?name=${keyword}&pageCount=100&page=0`)
     servers.value = data.value.List
   }
 
-  return { servers, getServers }
+  const getVersion = async () => {
+    const { data } = await useHttp.post(API.SERVER_VERSION)
+    version.value = data.value.version
+  }
+
+  return { servers, getServers, version, getVersion }
 }

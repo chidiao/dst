@@ -2349,6 +2349,15 @@
     "@vueuse/shared" "10.5.0"
     vue-demi ">=0.14.6"
 
+"@vueuse/integrations@^10.5.0":
+  version "10.5.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/integrations/-/integrations-10.5.0.tgz#38f00bd5a1cd0160645f0c75efd5d9579061e3d6"
+  integrity sha512-fm5sXLCK0Ww3rRnzqnCQRmfjDURaI4xMsx+T+cec0ngQqHx/JgUtm8G0vRjwtonIeTBsH1Q8L3SucE+7K7upJQ==
+  dependencies:
+    "@vueuse/core" "10.5.0"
+    "@vueuse/shared" "10.5.0"
+    vue-demi ">=0.14.6"
+
 "@vueuse/metadata@10.5.0":
   version "10.5.0"
   resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-10.5.0.tgz#7501a88cf5cbf7a515a03f0b8bbe3cecf30cad11"
@@ -6582,6 +6591,11 @@ socks@^2.6.2, socks@^2.7.1:
   dependencies:
     ip "^2.0.0"
     smart-buffer "^4.2.0"
+
+sortablejs@^1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.15.0.tgz#53230b8aa3502bb77a29e2005808ffdb4a5f7e2a"
+  integrity sha512-bv9qgVMjUMf89wAvM6AxVvS/4MX3sPeN0+agqShejLU5z5GX4C75ow1O2e5k4L6XItUyAK3gH6AxSbXrOM5e8w==
 
 "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.1, source-map-js@^1.0.2:
   version "1.0.2"

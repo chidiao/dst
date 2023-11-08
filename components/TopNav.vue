@@ -1,9 +1,18 @@
 <template>
   <div class="topnav shadow">
     <div class="container max-w-5xl h-full mx-auto p-2 md:p-4">
-      <div class="links">
-        <div class="link" v-for="l in links" @click="toServerList(l.keyword)">{{ l.word }}</div>
-        <div class="link" @click="toIcons">饥荒Icon</div>
+      <div class="links px-4 gap-8">
+        <div
+          class="link"
+          :class="{ active: route.path == `/servers/${l.keyword}` }"
+          v-for="l in links"
+          @click="toServerList(l.keyword)"
+        >
+          {{ l.word }}
+        </div>
+        <div class="link ml-auto" :class="{ active: route.path == `/icons` }" @click="toIcons">
+          Icons
+        </div>
       </div>
     </div>
   </div>
@@ -14,7 +23,7 @@
 <script setup lang="ts">
 const links = ref([
   {
-    word: '原来你也在这里',
+    word: '原来',
     keyword: '原来你也在这里'
   },
   {
@@ -26,6 +35,8 @@ const links = ref([
     keyword: '蛋挞'
   }
 ])
+
+const route = useRoute()
 const router = useRouter()
 const toServerList = (keyword: string) => {
   router.push(`/servers/${keyword}`)
@@ -54,7 +65,7 @@ const toIcons = () => router.push('/icons')
 
   .link {
     cursor: pointer;
-    margin: 0 8px;
+    position: relative;
   }
 }
 </style>

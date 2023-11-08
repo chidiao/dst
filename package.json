@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@unocss/reset": "^0.56.0",
-    "sass": "^1.67.0"
+    "@vueuse/integrations": "^10.5.0",
+    "sass": "^1.67.0",
+    "sortablejs": "^1.15.0"
   }
 }
