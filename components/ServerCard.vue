@@ -1,12 +1,12 @@
 <template>
-  <div class="card text-3 border-rounded">
+  <div class="card text-xs rounded">
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 border-b">
       <div class="text-sm font-bold">{{ server.Name }}</div>
-      <div class="text-blue cursor-pointer py-1" @click="onQuickConnect">{{ connect }}</div>
+      <div class="text-blue-500 cursor-pointer py-1" @click="onQuickConnect">{{ connect }}</div>
     </div>
 
     <div class="px-4 py-2">
-      <div class="py-1" v-show="details">描述：{{ details?.Desc }}</div>
+      <div class="py-1" v-show="details">描述：{{ details?.Description }}</div>
 
       <div class="flex flex-wrap">
         <div class="w-1/2 md:w-1/4 my-1">模式：{{ server.Mode + '/' + server.Intent }}</div>
@@ -75,7 +75,7 @@ const currentVersion = computed(() => {
 })
 
 const connect = computed(() => {
-  return `c_connect("${props.server?.Address}",${props.server?.Port})`
+  return `c_connect("${props.server?.Address?.IP}",${props.server?.Port})`
 })
 
 const days = computed(() => {
@@ -118,8 +118,8 @@ const getDetail = (key: 'mods' | 'players' | 'all', refresh?: boolean) => {
 const getSeverDetail = async () => {
   loading.value = true
   const id = props.server.RowId
-  const { data } = await useHttp.post(`${API.SERVER_DETAILs}/${id}`)
-  details.value = data.value
+  const { data } = await useHttp.post(API.SERVER_DETAILs + `/${id}`)
+  details.value = data.value.Server
   loading.value = false
 }
 
@@ -128,20 +128,12 @@ const players = ref()
 const { height: modsHeight } = useElementBounding(mods)
 const { height: playersHeight } = useElementBounding(players)
 
-const toModPage = (id?: number) => {
-  if (!id) return
-  window.open(`https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`)
-}
-const toPlayerPage = (id?: number) => {
-  if (!id) return
-  window.open(`https://steamcommunity.com/profiles/${id}`)
-}
-
 // copy
 const { copy } = useClipboard({ legacy: true })
+const toast = useToast()
 const onQuickConnect = () => {
   copy(connect.value)
-  message.success('Copied!')
+  toast.add({ title: 'Copied!' })
 }
 </script>
 

@@ -1,78 +1,94 @@
 export interface Server {
   Name?: string
-  Address?: string
+  Address?: Address
   Port?: number
   RowId?: string
   Connected?: number
-  Dedicated?: boolean
+  IsDedicated?: boolean
   Host?: string
   Intent?: string
   MaxConnections?: number
   Mode?: string
-  Mods?: boolean
-  Password?: boolean
+  IsMods?: boolean
+  IsPassword?: boolean
   Platform?: string
   Season?: string
-  PVP?: boolean
+  IsPvp?: boolean
   Version?: number
   Session?: string
-  Country?: string
+  IsClanOnly?: boolean
+  IsFriendsOnly?: boolean
+  Slaves?: null
+  IsAllowNewPlayers?: boolean
+  IsServerPaused?: boolean
+  SteamId?: string
+  SteamRoom?: string
+  Tags?: string[]
+  Guid?: string
+  IsClientHosted?: boolean
+  SteamClanId?: null
+  OwnerNetId?: null
+  IsLanOnly?: boolean
 }
 
 export interface ServerDetails {
-  LastPing?: number
-  SteamClanId?: null
-  Slaves?: null
-  Secondaries?: null
-  ClanOnly?: boolean
-  Fo?: boolean
-  Guid?: string
-  ClientHosted?: boolean
-  OwnerNetId?: null
-  Tags?: string[]
-  LanOnly?: boolean
-  Desc?: string
+  Players?: any[]
+  LastPing?: null
+  Description?: string
   Tick?: number
-  ClientModsOff?: boolean
+  IsClientModsOff?: boolean
   Nat?: number
-  AllowNewPlayers?: boolean
-  Event?: boolean
-  ValveCloudServer?: boolean
+  IsEvent?: boolean
+  IsValveCloudServer?: boolean
   ValvePopId?: null
   ValveRoutingInfo?: null
-  KleiOfficial?: boolean
-  ServerPaused?: boolean
+  IsKleiOfficial?: boolean
   DaysInfo?: DaysInfo
   WorldGen?: null
-  SteamId?: string
-  SteamRoom?: string
   Users?: null
   ModsInfo?: ModsInfo[]
-  Players?: any[]
   Name?: string
-  Address?: string
+  Address?: Address
   Port?: number
   RowId?: string
   Connected?: number
-  Dedicated?: boolean
+  IsDedicated?: boolean
   Host?: string
   Intent?: string
   MaxConnections?: number
   Mode?: string
-  Mods?: boolean
-  Password?: boolean
+  IsMods?: boolean
+  IsPassword?: boolean
   Platform?: string
   Season?: string
-  PVP?: boolean
+  IsPvp?: boolean
   Version?: number
   Session?: string
-  Country?: string
+  IsClanOnly?: boolean
+  IsFriendsOnly?: boolean
+  Slaves?: null
+  IsAllowNewPlayers?: boolean
+  IsServerPaused?: boolean
+  SteamId?: string
+  SteamRoom?: string
+  Tags?: string[]
+  Guid?: string
+  IsClientHosted?: boolean
+  SteamClanId?: null
+  OwnerNetId?: null
+  IsLanOnly?: boolean
+}
+
+export interface Address {
+  IP?: string
+  IsoCode?: string
 }
 
 export interface DaysInfo {
   Day?: number
   DaysElapsedInSeason?: number
   DaysLeftInSeason?: number
+  TotalDaysSeason?: number
 }
 
 export interface ModsInfo {
@@ -88,7 +104,9 @@ export default function (keyword?: string) {
   const version = useState<number>('version', () => 0)
 
   const getServers = async () => {
-    const { data } = await useHttp.post(`${API.SERVER_LIST}?name=${keyword}&pageCount=100&page=0`)
+    const { data } = await useHttp.post(API.SERVER_LIST, {
+      ServerName: keyword
+    })
     servers.value = data.value.List
   }
 

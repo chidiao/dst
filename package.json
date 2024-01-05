@@ -10,14 +10,12 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@ant-design-vue/nuxt": "^1.1.1",
     "@nuxt/devtools": "latest",
-    "@unocss/nuxt": "^0.56.0",
     "@vueuse/nuxt": "^10.5.0",
-    "nuxt": "^3.7.3"
+    "nuxt": "^3.8.2"
   },
   "dependencies": {
-    "@unocss/reset": "^0.56.0",
+    "@nuxt/ui": "^2.11.0",
     "@vueuse/integrations": "^10.5.0",
     "sass": "^1.67.0",
     "sortablejs": "^1.15.0"

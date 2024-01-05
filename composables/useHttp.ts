@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.dstserverlist.top/api'
+const BASE_URL = 'https://api.dstserverlist.top/api/v2'
 
 const fetch = (url: any, opts?: any) => {
   return useFetch(url, {

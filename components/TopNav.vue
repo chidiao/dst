@@ -10,8 +10,8 @@
         >
           {{ l.word }}
         </div>
-        <div class="link ml-auto" :class="{ active: route.path == `/icons` }" @click="toIcons">
-          Icons
+        <div class="link ml-auto" :class="{ active: route.path == `/more` }" @click="toMore">
+          其他
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@ const router = useRouter()
 const toServerList = (keyword: string) => {
   router.push(`/servers/${keyword}`)
 }
-const toIcons = () => router.push('/icons')
+const toMore = () => router.push('/more')
 </script>
 
 <style lang="scss" scoped>

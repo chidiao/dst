@@ -1,11 +1,14 @@
 export default defineNuxtConfig({
+  devtools: { enabled: false },
   ssr: false,
-  css: ['@unocss/reset/tailwind.css', '~/assets/style/main.scss'],
-  modules: ['@unocss/nuxt', '@vueuse/nuxt', '@ant-design-vue/nuxt'],
   router: {
     options: {
       hashMode: true
     }
   },
-  devtools: { enabled: false }
+  modules: ['@nuxt/ui', '@vueuse/nuxt'],
+  css: ['@/assets/style/main.scss'],
+  colorMode: {
+    preference: 'light'
+  }
 })
