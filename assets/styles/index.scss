@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'dst';
+  src: url('~/assets/fonts/dst.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji', 'dst';
+}
