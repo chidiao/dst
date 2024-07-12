@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     }
   },
   css: ['@/assets/styles/index.scss'],
-  modules: ['@nuxt/ui', '@vueuse/nuxt', 'nuxt-svgo-loader', '@formkit/auto-animate/nuxt'],
+  modules: ['@nuxt/ui', '@vueuse/nuxt', '@formkit/auto-animate/nuxt'],
   colorMode: {
     preference: 'light'
   }

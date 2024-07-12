@@ -17,11 +17,10 @@ onMounted(() => {
   getList()
 })
 
+const { serverApi } = useApis()
 const list = ref([])
 const getList = async () => {
-  const res = await $http.post(APIS.SERVER_LIST, {
-    ServerName: name
-  })
+  const res = await serverApi.list(name)
 
   if (res) {
     list.value = res.List

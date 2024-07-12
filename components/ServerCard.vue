@@ -49,10 +49,9 @@ const connect = computed(() => {
   return `c_connect("${props.server?.Address?.IP}",${props.server?.Port})`
 })
 
+const { serverApi } = useApis()
 const getDetails = async () => {
-  const res = await $http.post(APIS.SERVER_DETAILS + '/' + props.server?.RowId, {
-    forceUpdate: true
-  })
+  const res = await serverApi.details(props.server?.RowId)
 
   emit('update', res.Server)
 }
