@@ -13,6 +13,10 @@ if (!name) {
   router.replace('/servers')
 }
 
+useHead({
+  title: name
+})
+
 onMounted(() => {
   getList()
 })

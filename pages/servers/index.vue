@@ -13,12 +13,6 @@
       <UButton color="blue" @click="addServer">Add</UButton>
       <UButton color="red" @click="clearServers">Clear</UButton>
     </div>
-
-    <div class="my-5">
-      <NuxtLink to="/icons">
-        <UButton>Icons</UButton>
-      </NuxtLink>
-    </div>
   </div>
 </template>
 

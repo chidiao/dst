@@ -3,7 +3,7 @@
     <div ref="el" class="grid" :style="{ 'grid-template-columns': `repeat(${cols}, minmax(0, 1fr))` }">
       <div
         v-for="icon in DST_ICONS"
-        class="aspect-[1/1] cursor-pointer flex justify-center items-center bg-contain bg-[url('@/assets/imgs/bg-btn.png')] transition active:translate-y-1"
+        class="aspect-[1/1] cursor-pointer flex justify-center items-center bg-contain bg-[url('@/assets/img/bg-btn.png')] transition active:translate-y-1"
         @click="onCopy(icon.icon)"
       >
         <div>{{ icon.icon }}</div>
