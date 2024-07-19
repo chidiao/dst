@@ -14,14 +14,20 @@
 
       <div class="text-xs">
         <div>描述：{{ server?.Description }}</div>
+        <div class="mt-1">{{ day }}</div>
       </div>
     </div>
 
     <div v-if="server?.ModsInfo" class="py-2 space-y-4">
-      <UDivider class="my-2" label="模组" type="dashed" :ui="{ label: 'text-xs' }" />
+      <UDivider
+        class="my-2"
+        :label="`模组 (${server?.ModsInfo.length || 0})`"
+        type="dashed"
+        :ui="{ label: 'text-xs' }"
+      />
 
       <div class="text-xs flex flex-wrap gap-2">
-        <UTooltip class="dark" v-for="mod in server.ModsInfo" :text="mod.Id">
+        <UTooltip class="dark" v-for="mod in server.ModsInfo" :text="mod.Id.toString()">
           <a :href="communityLink(mod.Id)" target="_blank" class="mod">
             {{ mod.Name }}
           </a>
@@ -30,10 +36,15 @@
     </div>
 
     <div v-if="server?.Players" class="py-2 space-y-4">
-      <UDivider class="my-2" label="玩家" type="dashed" :ui="{ label: 'text-xs' }" />
+      <UDivider
+        class="my-2"
+        :label="`玩家 (${server?.Players.length || 0})`"
+        type="dashed"
+        :ui="{ label: 'text-xs' }"
+      />
 
       <div class="text-xs flex flex-wrap gap-2">
-        <UTooltip class="dark" v-for="player in server.Players" :text="player.NetId">
+        <UTooltip class="dark" v-for="player in server.Players" :text="player.NetId.toString()">
           <a :href="playerLink(player.NetId)" :style="{ '--bg': `#${player.Color}` }" target="_blank" class="mod">
             {{ `${player.Name}(${player.Prefab})` }}
           </a></UTooltip
@@ -53,6 +64,12 @@ const props = defineProps({
   }
 })
 const emit = defineEmits(['update'])
+
+const day = computed(() => {
+  const { Day, DaysElapsedInSeason, TotalDaysSeason } = props.server.DaysInfo
+
+  return `第${Day}天 ${props.server.Season}(${DaysElapsedInSeason}/${TotalDaysSeason})`
+})
 
 const connect = computed(() => {
   return `c_connect("${props.server?.Address?.IP}",${props.server?.Port})`
