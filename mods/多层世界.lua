@@ -19,7 +19,9 @@ return {
         ["3"]={ category="森林", name="盘丝岭", note="加群[323741946]一起玩！", galleryful=12, is_cave=false },
         ["4"]={ category="洞穴", name="盘丝洞", note="加群[323741946]一起玩！", galleryful=12, is_cave=true },
         ["5"]={ category="森林", name="骷髅山", note="加群[323741946]一起玩！", galleryful=12, is_cave=false },
-        ["6"]={ category="洞穴", name="白骨洞", note="加群[323741946]一起玩！", galleryful=12, is_cave=true } 
+        ["6"]={ category="洞穴", name="白骨洞", note="加群[323741946]一起玩！", galleryful=12, is_cave=true },
+        ["7"]={ category="森林", name="平顶山", note="加群[323741946]一起玩！", galleryful=12, is_cave=false },
+        ["8"]={ category="洞穴", name="莲花洞", note="加群[323741946]一起玩！", galleryful=12, is_cave=true } 
       },
       world_prompt=false 
     },

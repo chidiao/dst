@@ -13,6 +13,46 @@
       <UButton color="blue" @click="addServer">Add</UButton>
       <UButton color="red" @click="clearServers">Clear</UButton>
     </div>
+
+    <div class="py-5">
+      <div class="text-sm font-bold">多层世界配置(同服)</div>
+
+      <div class="flex gap-5 mt-5">
+        <div class="text-xs space-y-1 p-5 border rounded">
+          <p>主世界 (aa.aa.aa.aa)</p>
+          <p>bind_ip = 127.0.0.1</p>
+          <p>master_ip = 127.0.0.1</p>
+          <p>master_port = 10888</p>
+        </div>
+
+        <div class="text-xs space-y-1 p-5 border rounded">
+          <p>从世界 (aa.aa.aa.aa)</p>
+          <p>bind_ip = 127.0.0.1</p>
+          <p>master_ip = 127.0.0.1</p>
+          <p>master_port = 10888</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-5">
+      <div class="text-sm font-bold">多层世界配置(跨服)</div>
+
+      <div class="flex gap-5 mt-5">
+        <div class="text-xs space-y-1 p-5 border rounded">
+          <p>主世界 (aa.aa.aa.aa)</p>
+          <p>bind_ip = 0.0.0.0</p>
+          <p>master_ip = 127.0.0.1</p>
+          <p>master_port = 10888</p>
+        </div>
+
+        <div class="text-xs space-y-1 p-5 border rounded">
+          <p>从世界 (bb.bb.bb.bb)</p>
+          <p>bind_ip = 127.0.0.1</p>
+          <p>master_ip = aa.aa.aa.aa</p>
+          <p>master_port = 10888</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
