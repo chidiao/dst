@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'dst';
+  src:
+    url('../font/dst.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  color-scheme: dark;
+}
+
+.font-dst,
+.dst-font {
+  font-family:
+    'dst',
+    'Noto Sans SC',
+    'PingFang SC',
+    'Microsoft YaHei',
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+}
+
+/* presetIcons generates width/height in em; without a flex/grid parent an inline
+   span would compute a 0x0 box, so force a replaced inline box on icon spans */
+[class*='i-lucide-'] {
+  display: inline-block;
+}
+
+button:not(:disabled),
+[role='button']:not([aria-disabled='true']),
+select:not(:disabled),
+summary {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+body {
+  min-height: 100vh;
+  font-family:
+    'Noto Sans SC',
+    'PingFang SC',
+    'Microsoft YaHei',
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji',
+    'dst';
+  color: rgb(231 229 228);
+  background-color: #0c0a09;
+  background-image:
+    radial-gradient(60rem 30rem at 80% -10%, rgb(245 158 11 / 0.12), transparent 60%),
+    radial-gradient(50rem 25rem at -10% 110%, rgb(234 88 12 / 0.08), transparent 60%),
+    radial-gradient(100% 100% at 50% 0%, rgb(28 25 23 / 0.4), transparent);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgb(245 158 11 / 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid rgb(12 10 9);
+  border-radius: 9999px;
+  background: rgb(120 113 108 / 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(168 162 158 / 0.6);
+}
