@@ -69,6 +69,47 @@ body {
   background: rgb(245 158 11 / 0.3);
 }
 
+/* highlight.js theme (DST ember palette) */
+.hljs {
+  color: rgb(214 211 209);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: rgb(120 113 108);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: rgb(253 186 116);
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-template-variable {
+  color: rgb(252 211 77);
+}
+
+.hljs-literal,
+.hljs-number,
+.hljs-symbol {
+  color: rgb(249 115 22);
+}
+
+.hljs-built_in,
+.hljs-title,
+.hljs-function,
+.hljs-params {
+  color: rgb(251 191 36);
+}
+
+.hljs-variable,
+.hljs-operator,
+.hljs-punctuation {
+  color: rgb(214 211 209);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;

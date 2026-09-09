@@ -17,7 +17,8 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/servers': { prerender: true },
     '/icons': { prerender: true },
-    '/servers/**': { ssr: false }
+    '/servers/**': { ssr: false },
+    '/mods/**': { ssr: false }
   },
 
   app: {
