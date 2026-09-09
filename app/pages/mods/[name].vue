@@ -7,7 +7,6 @@ hljs.registerLanguage('lua', lua)
 
 interface ModFile {
   name: string
-  code: string
 }
 
 const route = useRoute()
@@ -17,10 +16,10 @@ useHead({
   title: computed(() => name.value || '配置')
 })
 
-const list = ref<ModFile[]>([])
+const code = ref('')
 const loading = ref(true)
 const error = ref('')
-const code = computed(() => list.value.find((item) => item.name === name.value)?.code)
+const notFound = ref(false)
 const highlighted = ref('')
 const copied = ref(false)
 
@@ -29,16 +28,23 @@ const { copy } = useClipboard({ legacy: true })
 const load = async () => {
   loading.value = true
   error.value = ''
+  notFound.value = false
+  if (!name.value) {
+    notFound.value = true
+    loading.value = false
+    return
+  }
   try {
     const res = await $fetch<{ list: ModFile[] }>('/api/mods')
-    list.value = res.list || []
-    const file = code.value
-    if (file) {
-      highlighted.value = hljs.highlight(file, { language: 'lua' }).value
+    if (!res.list?.some((item) => item.name === name.value)) {
+      notFound.value = true
+      return
     }
+    const raw = await $fetch<string>(`/files/mods/${encodeURIComponent(name.value)}`)
+    code.value = raw
+    highlighted.value = hljs.highlight(raw, { language: 'lua' }).value
   } catch (e: any) {
     error.value = e?.data?.message || '加载失败，请重试'
-    list.value = []
   } finally {
     loading.value = false
   }
